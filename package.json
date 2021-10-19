@@ -1,0 +1,23 @@
+{
+  "name": "genesys-oct",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kiran-blockchain/genesys-oct.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kiran-blockchain/genesys-oct/issues"
+  },
+  "homepage": "https://github.com/kiran-blockchain/genesys-oct#readme",
+  "directories": {
+    "test": "test"
+  }
+}
