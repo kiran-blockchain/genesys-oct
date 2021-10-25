@@ -1,5 +1,5 @@
 //Working with files
-const  fileSystem = require('fs');
+const fileSystem = require('fs');
 
 //Create a file
 //fileSystem.writeFileSync("./demo.txt","Welcome to Genesys");
@@ -26,11 +26,29 @@ const  fileSystem = require('fs');
 //         }
 //     });
 
-fileSystem.mkdir("newdir",(err,result)=>{
-    if(err){
-                    console.log(err);
-                }
-                else{
-                    console.log("Directory Created");
-                }
+fileSystem.mkdir("newdir", (err, result) => {
+    if (err) {
+        console.log(err);
+    }
+    else {
+        console.log("Directory Created");
+    }
+});
+
+fileSystem.mkdir("newdir").then(result => {
+    console.log("Success")
+
+}).catch(err => {
+    console.log(err);
 })
+
+function a (callback){
+    callback();
+}
+
+function b(){
+
+}
+
+a(b);
+
