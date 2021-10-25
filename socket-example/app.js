@@ -14,7 +14,14 @@ io.on("connection", (socket) => {
 
   socket.on('disconnect',()=>{
       console.log("User Disconnected =",socket.id)
+  });
+  //listen to the chat message sent by the client
+
+  socket.on('chat',(data)=>{
+      console.log(data);
+      io.emit('groupMessage',data)
   })
+  socket.emit("Welcome","I am the message from server");
 });
 app.get("/",(req,res)=>{
     const filePath =__dirname;
