@@ -15,6 +15,11 @@ io.on("connection", (socket) => {
   socket.on('disconnect',()=>{
       console.log("User Disconnected =",socket.id)
   });
+  socket.on("privateMessage",(userid,data)=>{
+      io.to(userid).emit(data);
+  })
+
+  io.emit("groupMessage",socket.id+" has joined.");
   //listen to the chat message sent by the client
 
   socket.on('chat',(data)=>{

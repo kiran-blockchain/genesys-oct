@@ -1,4 +1,7 @@
 const axios = require('axios');
+const sql = require("mssql");
+const dbConfig = require("../../config/dbconnection");
+const { getCategoriesFromDB } = require('../../queries/query');
 const getCountries = (req, res) => {
     axios(process.env.COUNTRIES_URL).then(result => {
         const modifiedResult = result.data.map(x => {
@@ -38,8 +41,21 @@ const getMultipleData = (req, res) => {
     });
 }
 
+const getCategories = async(req,res)=>{
+    try{
+    await sql.connect(dbConfig);
+    let result = await sql.query(getCategoriesFromDB)
+    console.log(result);
+    res.json({"message":result.recordset})
+    }
+    catch(ex){
+        console.log(ex)
+    }
+};
+
 module.exports = {
     getCountries,
     getCountriesAsync,
-    getMultipleData
+    getMultipleData,
+    getCategories
 }
